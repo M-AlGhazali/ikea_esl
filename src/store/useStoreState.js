@@ -1,5 +1,6 @@
 import { create } from 'zustand'
 import { getPlacement, placementsForProduct } from '../data/placements.js'
+import { floorLift } from '../data/storeLayout.js'
 import { getPreset, focusOnPlacement } from '../lib/cameraPresets.js'
 
 /**
@@ -31,7 +32,7 @@ export const useStoreState = create((set, get) => ({
       selectedPlacementId: placement.id,
       selectedProductId: placement.productId,
       activeTab: sameProduct ? get().activeTab : 'overview',
-      cameraRequest: focusOnPlacement(placement),
+      cameraRequest: focusOnPlacement(placement, floorLift(placement.floor, get().cutaway)),
     })
   },
 

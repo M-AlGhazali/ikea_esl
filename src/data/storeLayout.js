@@ -15,7 +15,19 @@ export const STORE = {
   roofY: 10.0,
   /** Void cut through the second-floor slab so both levels read at once. */
   atrium: { x: [-6, 6], z: [-4, 4] },
+  /** How far the upper floor rises at full cutaway, in metres. */
+  liftMax: 5.4,
 }
+
+/**
+ * Vertical offset applied to everything on the second floor as the cutaway
+ * slider opens. Lifting the upper level apart is what lets a viewer read both
+ * floors at once without either becoming a ghost.
+ */
+export const secondFloorLift = (cutaway) => cutaway * STORE.liftMax
+
+/** The lift for a given floor index. Floor 0 never moves. */
+export const floorLift = (floor, cutaway) => (floor === 1 ? secondFloorLift(cutaway) : 0)
 
 /**
  * @typedef {Object} Zone
