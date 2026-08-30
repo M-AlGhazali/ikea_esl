@@ -67,9 +67,9 @@ asserted in text.
 | Zoom | Scroll |
 | Select | Click a product, an ESL, or a hanging sign |
 | Deselect | Click empty space, or × in the panel |
-| Camera presets | 3D Twin · Plan View · Isometric · Side · Top · Interior |
+| Camera presets | 3D Twin · Plan · Isometric · Side · Top · Interior |
 | Open the building | Cutaway slider |
-| Isolate a level | All Floors / Ground Floor / Second Floor |
+| Isolate a level | All / Ground / Second |
 | Measurements | Dimensions toggle |
 
 **The cutaway slider** does more than fade walls. At 0% the store is sealed — a
