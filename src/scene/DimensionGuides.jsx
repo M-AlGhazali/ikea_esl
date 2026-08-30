@@ -14,7 +14,16 @@ function Guide({ from, to, label, labelOffset = [0, 0.5, 0] }) {
   const mid = [(from[0] + to[0]) / 2, (from[1] + to[1]) / 2, (from[2] + to[2]) / 2]
   return (
     <group>
-      <Line points={[from, to]} color={CYAN} lineWidth={1.6} dashed dashSize={0.5} gapSize={0.28} depthTest={false} />
+      <Line
+        points={[from, to]}
+        color={CYAN}
+        lineWidth={1.6}
+        dashed
+        dashSize={0.5}
+        gapSize={0.28}
+        depthTest={false}
+        raycast={null}
+      />
       <Text
         position={[mid[0] + labelOffset[0], mid[1] + labelOffset[1], mid[2] + labelOffset[2]]}
         fontSize={0.7}

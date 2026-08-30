@@ -44,6 +44,7 @@ function ShowroomRoom({ zone }) {
         transparent
         opacity={0.65}
         position={[0, 0.03, 0]}
+        raycast={null}
       />
 
       {/* two partial walls give the vignette a corner without boxing it in */}

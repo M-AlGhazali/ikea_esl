@@ -1,7 +1,11 @@
-import { memo } from 'react'
+import { memo, useRef } from 'react'
+import { useFrame } from '@react-three/fiber'
 import { Billboard, Text } from '@react-three/drei'
 import { ZONES, zoneCenter, zoneSize, STORE } from '../data/storeLayout.js'
 import FloorGroup from './FloorGroup.jsx'
+import { Vector3 } from 'three'
+
+const WORLD_POS = new Vector3()
 
 /**
  * Zone floor tints, wide circulation paths and hanging zone signs — the
@@ -13,10 +17,24 @@ import FloorGroup from './FloorGroup.jsx'
  */
 const SIGN_HEIGHT = 3.0
 
+// Wayfinding signs are for reading the store as a whole; once the camera moves
+// in to inspect a product they only get in the way, so they fade out.
+const FADE_NEAR = 11
+const FADE_FAR = 20
+
 function ZoneMarker({ zone }) {
   const [cx, cy, cz] = zoneCenter(zone)
   const [w, d] = zoneSize(zone)
   const signWidth = Math.min(4.6, Math.max(2.6, w * 0.72))
+  const sign = useRef()
+
+  useFrame(({ camera }) => {
+    if (!sign.current) return
+    const dist = camera.position.distanceTo(sign.current.getWorldPosition(WORLD_POS))
+    const t = Math.min(1, Math.max(0, (dist - FADE_NEAR) / (FADE_FAR - FADE_NEAR)))
+    sign.current.visible = t > 0.02
+    sign.current.scale.setScalar(0.6 + t * 0.4)
+  })
 
   return (
     <group>
@@ -30,7 +48,7 @@ function ZoneMarker({ zone }) {
         </mesh>
       )}
 
-      <group position={[cx, cy + SIGN_HEIGHT, cz]}>
+      <group ref={sign} position={[cx, cy + SIGN_HEIGHT, cz]}>
         <mesh position={[0, 0.6, 0]}>
           <cylinderGeometry args={[0.006, 0.006, 1.2, 6]} />
           <meshStandardMaterial color="#9fb3b8" metalness={0.6} roughness={0.35} />

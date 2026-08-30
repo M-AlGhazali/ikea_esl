@@ -12,20 +12,30 @@ import { damp } from '../lib/anim.js'
 function Exterior() {
   const cutaway = useStoreState((s) => s.cutaway)
   const skin = useRef()
+  const band = useRef()
   const { width, depth, roofY } = STORE
 
   useFrame((_, dt) => {
-    if (!skin.current) return
-    skin.current.opacity = damp(skin.current.opacity, 1 - cutaway * 0.85, 4, dt)
-    skin.current.visible = skin.current.opacity > 0.04
+    for (const mat of [skin.current, band.current]) {
+      if (!mat) continue
+      mat.opacity = damp(mat.opacity, Math.max(0, 1 - cutaway * 1.6), 4, dt)
+      mat.visible = mat.opacity > 0.04
+    }
   })
 
   return (
     <group>
-      {/* blue outer skin, just outside the walls, inside faces only */}
+      {/* Blue outer skin. Front faces, so a sealed store reads as the real
+          thing from outside; it fades away as the cutaway slider opens. */}
       <mesh position={[0, roofY / 2, 0]}>
         <boxGeometry args={[width + 0.9, roofY, depth + 0.9]} />
-        <meshStandardMaterial ref={skin} color="#0058a3" roughness={0.85} side={1} transparent opacity={1} />
+        <meshStandardMaterial ref={skin} color="#0058a3" roughness={0.85} side={2} transparent opacity={1} />
+      </mesh>
+
+      {/* yellow band near the parapet, the other half of the exterior cue */}
+      <mesh position={[0, roofY - 1.1, 0]}>
+        <boxGeometry args={[width + 1.05, 1.1, depth + 1.05]} />
+        <meshStandardMaterial ref={band} color="#ffdb00" roughness={0.8} side={2} transparent opacity={1} />
       </mesh>
 
       {/* yellow entrance canopy */}

@@ -12,8 +12,10 @@ import { damp } from '../lib/anim.js'
  * label is selected. That strip is what separates this from a printed card at
  * a glance, so it stays lit even at rest.
  */
-const W = 0.16
-const H = 0.1
+// 16:10, matching the 512x320 texture. Sized at the large end of real ESLs so
+// the tag stays legible when the demo is shown on a projector.
+const W = 0.224
+const H = 0.14
 
 function ESLLabel({ placement, selected, hovered }) {
   const { product, location } = placement
@@ -43,15 +45,16 @@ function ESLLabel({ placement, selected, hovered }) {
       }}
       onPointerOut={() => setHovered(null)}
     >
-      {/* housing */}
-      <mesh castShadow>
-        <boxGeometry args={[W + 0.012, H + 0.012, 0.012]} />
+      {/* Housing. Kept a clear 3 mm behind the screen: at demo camera distances
+          a sub-millimetre gap z-fights and the face renders black. */}
+      <mesh castShadow position={[0, 0, -0.012]}>
+        <boxGeometry args={[W + 0.014, H + 0.014, 0.02]} />
         <meshStandardMaterial color="#1b232a" roughness={0.45} metalness={0.2} />
       </mesh>
 
       {/* powered edge */}
-      <mesh position={[0, -H / 2 - 0.005, 0.001]}>
-        <boxGeometry args={[W + 0.012, 0.005, 0.014]} />
+      <mesh position={[0, -H / 2 - 0.006, -0.01]}>
+        <boxGeometry args={[W + 0.014, 0.006, 0.022]} />
         <meshStandardMaterial
           ref={edge}
           color="#35e0d4"
@@ -62,9 +65,9 @@ function ESLLabel({ placement, selected, hovered }) {
       </mesh>
 
       {/* e-paper face */}
-      <mesh position={[0, 0, 0.0068]}>
+      <mesh position={[0, 0, 0.002]}>
         <planeGeometry args={[W, H]} />
-        <meshStandardMaterial map={texture} roughness={0.62} metalness={0} />
+        <meshStandardMaterial map={texture} roughness={0.62} metalness={0} toneMapped={false} />
       </mesh>
     </group>
   )

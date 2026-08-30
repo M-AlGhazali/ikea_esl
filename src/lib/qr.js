@@ -19,12 +19,20 @@ export function qrCanvas(text, size = 160) {
   const canvas = document.createElement('canvas')
   canvas.width = size
   canvas.height = size
-  QRCode.toCanvas(canvas, text, {
-    width: size,
-    margin: 0,
-    errorCorrectionLevel: 'M',
-    color: { dark: '#0b1114ff', light: '#ffffffff' },
-  })
+  try {
+    QRCode.toCanvas(canvas, text, {
+      width: size,
+      margin: 0,
+      errorCorrectionLevel: 'M',
+      color: { dark: '#0b1114ff', light: '#ffffffff' },
+    })
+  } catch (err) {
+    // A QR failure must never blank the label that contains it.
+    console.warn('QR generation failed for', text, err)
+    const ctx = canvas.getContext('2d')
+    ctx.fillStyle = '#ffffff'
+    ctx.fillRect(0, 0, size, size)
+  }
   cache.set(key, canvas)
   return canvas
 }

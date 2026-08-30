@@ -1,0 +1,38 @@
+import ProductGlyph from './ProductGlyph.jsx'
+import { formatPrice, effectivePrice, stockToken } from '../lib/format.js'
+
+/** Compact catalog row, used by the panel empty state. */
+export default function ProductCard({ product, onSelect }) {
+  const multi = product.locations.length > 1
+
+  return (
+    <button
+      type="button"
+      onClick={onSelect}
+      className="group mb-1.5 flex w-full items-center gap-3 rounded-xl border border-transparent bg-ink-800/60 p-2.5 text-left transition hover:border-cyan-600/60 hover:bg-ink-700"
+    >
+      <div className="shrink-0 rounded-lg bg-ink-900/60 p-1">
+        <ProductGlyph category={product.category} tint={product.colorHex} size={40} />
+      </div>
+
+      <div className="min-w-0 flex-1">
+        <p className="truncate text-[13px] font-semibold text-white">{product.nameEn}</p>
+        <p dir="rtl" className="truncate text-[11px] text-muted">
+          {product.nameAr}
+        </p>
+      </div>
+
+      <div className="shrink-0 text-right">
+        <p className="text-[13px] font-bold text-cyan-300">{formatPrice(effectivePrice(product))}</p>
+        <div className="mt-1 flex items-center justify-end gap-1.5">
+          {multi && (
+            <span className="rounded bg-cyan-600/25 px-1.5 py-px text-[10px] font-semibold text-cyan-300">
+              ×{product.locations.length}
+            </span>
+          )}
+          <span className="size-2 rounded-full" style={{ background: stockToken(product.stockStatus) }} />
+        </div>
+      </div>
+    </button>
+  )
+}

@@ -44,7 +44,7 @@ function BinTable({ position, rotationY = 0, size }) {
       ))}
 
       {bins.map((b) => (
-        <mesh key={b.key} geometry={UNIT_GEO} material={BIN_MAT} position={b.position} scale={b.scale} castShadow />
+        <mesh key={b.key} geometry={UNIT_GEO} material={BIN_MAT} position={b.position} scale={b.scale} />
       ))}
 
       <mesh geometry={UNIT_GEO} material={LEG_MAT} position={[0, h - 0.06, d / 2 - 0.01]} scale={[w, 0.07, 0.02]} />
