@@ -37,9 +37,9 @@ const STOCK_LABELS = {
 }
 
 const STOCK_TOKENS = {
-  'in-stock': '#38d39f',
-  'low-stock': '#ffb020',
-  'out-of-stock': '#ff5c6c',
+  'in-stock': '#0f8a5f',
+  'low-stock': '#b8730a',
+  'out-of-stock': '#d13b3b',
 }
 
 export const stockLabel = (status) => STOCK_LABELS[status] ?? 'Unknown'

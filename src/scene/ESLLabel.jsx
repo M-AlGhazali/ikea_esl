@@ -7,7 +7,7 @@ import { damp } from '../lib/anim.js'
 /**
  * A shelf-edge Electronic Shelf Label.
  *
- * The e-paper face carries the canvas texture; the "powered" cue is a cyan
+ * The e-paper face carries the canvas texture; the "powered" cue is a blue
  * emissive strip on the housing, which brightens on hover and pulses when the
  * label is selected. That strip is what separates this from a printed card at
  * a glance, so it stays lit even at rest.
@@ -57,8 +57,8 @@ function ESLLabel({ placement, selected, hovered }) {
         <boxGeometry args={[W + 0.014, 0.006, 0.022]} />
         <meshStandardMaterial
           ref={edge}
-          color="#35e0d4"
-          emissive="#35e0d4"
+          color="#1f7ae0"
+          emissive="#1f7ae0"
           emissiveIntensity={0.85}
           toneMapped={false}
         />

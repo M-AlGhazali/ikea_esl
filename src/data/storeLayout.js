@@ -44,22 +44,22 @@ export const floorLift = (floor, cutaway) => (floor === 1 ? secondFloorLift(cuta
 /** @type {Zone[]} */
 export const ZONES = [
   { id: 'gf-entrance',    label: 'Entrance & Transition',   labelAr: 'المدخل',            floor: 0, x: [-8, 8],    z: [10, 15],   kind: 'circulation', accent: '#ffdb00' },
-  { id: 'gf-accessories', label: 'Home Accessories',        labelAr: 'إكسسوارات المنزل',  floor: 0, x: [-21, -14], z: [3, 10],    kind: 'market-hall', accent: '#35e0d4' },
-  { id: 'gf-kitchen',     label: 'Kitchen & Tableware',     labelAr: 'أدوات المطبخ',      floor: 0, x: [-21, -14], z: [-3, 3],    kind: 'market-hall', accent: '#35e0d4' },
-  { id: 'gf-textiles',    label: 'Textiles & Bedding',      labelAr: 'المنسوجات',         floor: 0, x: [-21, -14], z: [-12, -4],  kind: 'market-hall', accent: '#35e0d4' },
-  { id: 'gf-decor',       label: 'Decor & Organizers',      labelAr: 'الديكور والتنظيم',  floor: 0, x: [-12, -7],  z: [-13, -5],  kind: 'market-hall', accent: '#35e0d4' },
-  { id: 'gf-lighting',    label: 'Lighting Accessories',    labelAr: 'إكسسوارات الإضاءة', floor: 0, x: [-12, -7],  z: [0, 8],     kind: 'market-hall', accent: '#35e0d4' },
-  { id: 'gf-display',     label: 'Small Furniture Display', labelAr: 'عرض الأثاث الصغير', floor: 0, x: [-2, 6],    z: [-14, -8],  kind: 'showroom',    accent: '#6defe6' },
-  { id: 'gf-warehouse',   label: 'Self-Serve Warehouse',    labelAr: 'الخدمة الذاتية',    floor: 0, x: [10, 21],   z: [-14, 2],   kind: 'warehouse',   accent: '#ffb020' },
+  { id: 'gf-accessories', label: 'Home Accessories',        labelAr: 'إكسسوارات المنزل',  floor: 0, x: [-21, -14], z: [3, 10],    kind: 'market-hall', accent: '#0058a3' },
+  { id: 'gf-kitchen',     label: 'Kitchen & Tableware',     labelAr: 'أدوات المطبخ',      floor: 0, x: [-21, -14], z: [-3, 3],    kind: 'market-hall', accent: '#0058a3' },
+  { id: 'gf-textiles',    label: 'Textiles & Bedding',      labelAr: 'المنسوجات',         floor: 0, x: [-21, -14], z: [-12, -4],  kind: 'market-hall', accent: '#0058a3' },
+  { id: 'gf-decor',       label: 'Decor & Organizers',      labelAr: 'الديكور والتنظيم',  floor: 0, x: [-12, -7],  z: [-13, -5],  kind: 'market-hall', accent: '#0058a3' },
+  { id: 'gf-lighting',    label: 'Lighting Accessories',    labelAr: 'إكسسوارات الإضاءة', floor: 0, x: [-12, -7],  z: [0, 8],     kind: 'market-hall', accent: '#0058a3' },
+  { id: 'gf-display',     label: 'Small Furniture Display', labelAr: 'عرض الأثاث الصغير', floor: 0, x: [-2, 6],    z: [-14, -8],  kind: 'showroom',    accent: '#1f7ae0' },
+  { id: 'gf-warehouse',   label: 'Self-Serve Warehouse',    labelAr: 'الخدمة الذاتية',    floor: 0, x: [10, 21],   z: [-14, 2],   kind: 'warehouse',   accent: '#b8730a' },
   { id: 'gf-checkout',    label: 'Checkout & Transition',   labelAr: 'الدفع',             floor: 0, x: [10, 20],   z: [8, 13],    kind: 'checkout',    accent: '#0058a3' },
 
-  { id: 'sf-living-a',    label: 'Living Room Showroom A',  labelAr: 'صالة المعيشة أ',    floor: 1, x: [-20, -10], z: [2, 12],    kind: 'showroom', accent: '#6defe6' },
-  { id: 'sf-living-b',    label: 'Living Room Showroom B',  labelAr: 'صالة المعيشة ب',    floor: 1, x: [-20, -10], z: [-10, -1],  kind: 'showroom', accent: '#6defe6' },
-  { id: 'sf-bedroom',     label: 'Bedroom Showroom',        labelAr: 'غرفة النوم',        floor: 1, x: [-8, 0],    z: [-14, -6],  kind: 'showroom', accent: '#6defe6' },
-  { id: 'sf-storage',     label: 'Storage Solutions',       labelAr: 'حلول التخزين',      floor: 1, x: [-8, 2],    z: [8, 14],    kind: 'showroom', accent: '#6defe6' },
-  { id: 'sf-dining',      label: 'Dining Area',             labelAr: 'منطقة الطعام',      floor: 1, x: [8, 18],    z: [6, 14],    kind: 'showroom', accent: '#6defe6' },
-  { id: 'sf-office',      label: 'Office / Workspace',      labelAr: 'مساحة العمل',       floor: 1, x: [8, 18],    z: [-2, 4],    kind: 'showroom', accent: '#6defe6' },
-  { id: 'sf-lighting',    label: 'Lighting Showroom',       labelAr: 'معرض الإضاءة',      floor: 1, x: [8, 20],    z: [-14, -5],  kind: 'showroom', accent: '#35e0d4' },
+  { id: 'sf-living-a',    label: 'Living Room Showroom A',  labelAr: 'صالة المعيشة أ',    floor: 1, x: [-20, -10], z: [2, 12],    kind: 'showroom', accent: '#1f7ae0' },
+  { id: 'sf-living-b',    label: 'Living Room Showroom B',  labelAr: 'صالة المعيشة ب',    floor: 1, x: [-20, -10], z: [-10, -1],  kind: 'showroom', accent: '#1f7ae0' },
+  { id: 'sf-bedroom',     label: 'Bedroom Showroom',        labelAr: 'غرفة النوم',        floor: 1, x: [-8, 0],    z: [-14, -6],  kind: 'showroom', accent: '#1f7ae0' },
+  { id: 'sf-storage',     label: 'Storage Solutions',       labelAr: 'حلول التخزين',      floor: 1, x: [-8, 2],    z: [8, 14],    kind: 'showroom', accent: '#1f7ae0' },
+  { id: 'sf-dining',      label: 'Dining Area',             labelAr: 'منطقة الطعام',      floor: 1, x: [8, 18],    z: [6, 14],    kind: 'showroom', accent: '#1f7ae0' },
+  { id: 'sf-office',      label: 'Office / Workspace',      labelAr: 'مساحة العمل',       floor: 1, x: [8, 18],    z: [-2, 4],    kind: 'showroom', accent: '#1f7ae0' },
+  { id: 'sf-lighting',    label: 'Lighting Showroom',       labelAr: 'معرض الإضاءة',      floor: 1, x: [8, 20],    z: [-14, -5],  kind: 'showroom', accent: '#0058a3' },
 ]
 
 export const getZone = (id) => ZONES.find((z) => z.id === id)

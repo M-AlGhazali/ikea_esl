@@ -11,7 +11,7 @@ import RightDetailsPanel from './ui/RightDetailsPanel.jsx'
  */
 export default function App() {
   return (
-    <div className="flex h-dvh w-full flex-col overflow-hidden bg-ink-900 lg:flex-row">
+    <div className="flex h-dvh w-full flex-col overflow-hidden bg-page lg:flex-row">
       <main className="relative min-h-0 flex-1">
         <StoreScene />
         <SceneLoader />
@@ -19,7 +19,7 @@ export default function App() {
         <Legend />
       </main>
 
-      <aside className="h-[50dvh] shrink-0 border-t border-line bg-ink-850 lg:h-auto lg:w-[380px] lg:border-l lg:border-t-0 xl:w-[420px]">
+      <aside className="h-[50dvh] shrink-0 border-t border-line bg-panel lg:h-auto lg:w-[380px] lg:border-l lg:border-t-0 xl:w-[400px]">
         <RightDetailsPanel />
       </aside>
     </div>

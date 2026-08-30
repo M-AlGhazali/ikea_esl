@@ -1,45 +1,49 @@
 @import "tailwindcss";
 
+/**
+ * Light, minimal palette. White surfaces, one blue for anything interactive,
+ * and colour reserved for meaning: red for price, amber/green/red for stock.
+ */
 @theme {
-  --color-ink-900: #05171c;
-  --color-ink-850: #08202a;
-  --color-ink-800: #0b2a35;
-  --color-ink-700: #103642;
-  --color-ink-600: #17495a;
-  --color-line: #1d5566;
+  --color-page: #ffffff;
+  --color-panel: #ffffff;
+  --color-soft: #f6f8fa;
+  --color-soft-2: #eef1f5;
+  --color-line: #e4e7ec;
+  --color-line-strong: #d3d8e0;
 
-  --color-cyan-400: #35e0d4;
-  --color-cyan-300: #6defe6;
-  --color-cyan-600: #12a9a1;
+  --color-ink: #101820;
+  --color-ink-soft: #626e7d;
+  --color-ink-faint: #97a1ad;
 
-  --color-muted: #7fa6b0;
-  --color-paper: #f4f6f5;
+  --color-brand: #0058a3;
+  --color-brand-hover: #00457f;
+  --color-brand-soft: #eaf2fb;
+  --color-accent: #1f7ae0;
 
-  --color-ikea-blue: #0058a3;
-  --color-ikea-yellow: #ffdb00;
-  --color-esl-red: #e11d2e;
+  --color-yellow: #ffdb00;
+  --color-red: #e11d2e;
 
-  --color-stock-in: #38d39f;
-  --color-stock-low: #ffb020;
-  --color-stock-out: #ff5c6c;
+  --color-ok: #0f8a5f;
+  --color-warn: #b8730a;
+  --color-bad: #d13b3b;
 
   --font-sans: "Inter", "Segoe UI", system-ui, sans-serif;
-  --font-arabic: "Segoe UI", "Tahoma", sans-serif;
 }
 
 html, body, #root { height: 100%; }
 
 body {
   margin: 0;
-  background: var(--color-ink-900);
-  color: #dff1f4;
+  background: var(--color-page);
+  color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   overscroll-behavior: none;
 }
 
 .scroll-slim::-webkit-scrollbar { width: 6px; height: 6px; }
-.scroll-slim::-webkit-scrollbar-thumb { background: var(--color-ink-600); border-radius: 3px; }
+.scroll-slim::-webkit-scrollbar-thumb { background: var(--color-line-strong); border-radius: 3px; }
 .scroll-slim::-webkit-scrollbar-track { background: transparent; }
 
 input[type="range"] {
@@ -50,7 +54,7 @@ input[type="range"] {
 input[type="range"]::-webkit-slider-runnable-track {
   height: 4px;
   border-radius: 999px;
-  background: var(--color-ink-600);
+  background: var(--color-line-strong);
 }
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -59,7 +63,6 @@ input[type="range"]::-webkit-slider-thumb {
   height: 14px;
   width: 14px;
   border-radius: 999px;
-  background: var(--color-cyan-400);
+  background: var(--color-brand);
   cursor: pointer;
-  box-shadow: 0 0 0 3px rgb(53 224 212 / 0.2);
 }

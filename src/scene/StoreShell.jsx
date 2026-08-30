@@ -79,7 +79,7 @@ function AtriumRailing() {
       {rails.map((r, i) => (
         <mesh key={`cap-${i}`} position={[r.p[0], secondY + h, r.p[2]]}>
           <boxGeometry args={[r.s[0] === 0.06 ? 0.09 : r.s[0], 0.055, r.s[2] === 0.06 ? 0.09 : r.s[2]]} />
-          <meshStandardMaterial color="#35e0d4" emissive="#35e0d4" emissiveIntensity={0.5} toneMapped={false} />
+          <meshStandardMaterial color="#1f7ae0" emissive="#1f7ae0" emissiveIntensity={0.5} toneMapped={false} />
         </mesh>
       ))}
     </group>
@@ -143,7 +143,7 @@ function StoreShell() {
           {/* accent trim on the slab edge, so the lifted plate reads as a floor */}
           <mesh position={[0, -slabThickness / 2 - 0.02, 0]}>
             <boxGeometry args={[width + 0.1, 0.05, depth + 0.1]} />
-            <meshStandardMaterial color="#35e0d4" emissive="#35e0d4" emissiveIntensity={0.35} toneMapped={false} />
+            <meshStandardMaterial color="#1f7ae0" emissive="#1f7ae0" emissiveIntensity={0.35} toneMapped={false} />
           </mesh>
         </group>
 

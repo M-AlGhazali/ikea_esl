@@ -42,7 +42,7 @@ function ZoneMarker({ zone }) {
         <mesh rotation={[-Math.PI / 2, 0, 0]} position={[cx, cy + 0.008, cz]} receiveShadow>
           <planeGeometry args={[w, d]} />
           <meshStandardMaterial
-            color={zone.kind === 'warehouse' ? '#d2d8d5' : zone.kind === 'checkout' ? '#dbe6ee' : '#e9ede9'}
+            color={zone.kind === 'warehouse' ? '#eceef0' : zone.kind === 'checkout' ? '#e7eef5' : '#f2f4f5'}
             roughness={0.95}
           />
         </mesh>
@@ -56,23 +56,26 @@ function ZoneMarker({ zone }) {
         <Billboard follow>
           <mesh>
             <planeGeometry args={[signWidth, 0.5]} />
+            <meshStandardMaterial color="#ffffff" roughness={0.9} side={2} />
+          </mesh>
+          <mesh position={[0, -0.22, 0.005]}>
+            <planeGeometry args={[signWidth, 0.05]} />
             <meshStandardMaterial
-              color="#0b2a35"
+              color={zone.accent}
               emissive={zone.accent}
-              emissiveIntensity={0.14}
-              transparent
-              opacity={0.9}
+              emissiveIntensity={0.3}
+              toneMapped={false}
               side={2}
             />
           </mesh>
           <Text
             position={[0, 0, 0.01]}
-            fontSize={0.23}
+            fontSize={0.22}
             maxWidth={signWidth - 0.3}
             textAlign="center"
             anchorX="center"
             anchorY="middle"
-            color={zone.accent}
+            color="#101820"
           >
             {zone.label}
           </Text>

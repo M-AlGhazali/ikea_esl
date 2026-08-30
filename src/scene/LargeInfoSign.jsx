@@ -88,10 +88,10 @@ function LargeInfoSign({ placement, selected, hovered }) {
         />
       </mesh>
 
-      {/* cyan status pip on the bezel, matching the shelf-edge ESL cue */}
+      {/* status pip on the bezel, matching the shelf-edge ESL cue */}
       <mesh position={[SW / 2 + 0.008, -SH / 2 + 0.03, 0]}>
         <boxGeometry args={[0.012, 0.05, 0.014]} />
-        <meshStandardMaterial color="#35e0d4" emissive="#35e0d4" emissiveIntensity={1.2} toneMapped={false} />
+        <meshStandardMaterial color="#1f7ae0" emissive="#1f7ae0" emissiveIntensity={1.2} toneMapped={false} />
       </mesh>
     </group>
   )

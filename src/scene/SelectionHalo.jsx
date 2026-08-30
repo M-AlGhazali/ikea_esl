@@ -17,10 +17,10 @@ function SelectionHalo({ selected, product }) {
   useFrame((state, dt) => {
     const t = state.clock.elapsedTime
     if (ringMat.current) {
-      ringMat.current.opacity = damp(ringMat.current.opacity, selected ? 0.95 : 0.4, 8, dt)
+      ringMat.current.opacity = damp(ringMat.current.opacity, selected ? 0.9 : 0.35, 8, dt)
     }
     if (beamMat.current) {
-      beamMat.current.opacity = damp(beamMat.current.opacity, selected ? 0.13 : 0.05, 8, dt)
+      beamMat.current.opacity = damp(beamMat.current.opacity, selected ? 0.07 : 0.03, 8, dt)
     }
     if (ring.current) {
       const s = selected ? 1 + Math.sin(t * 3) * 0.035 : 1
@@ -35,7 +35,7 @@ function SelectionHalo({ selected, product }) {
         <ringGeometry args={[r, r + 0.06, 48, 1, 0, Math.PI * 1.55]} />
         <meshBasicMaterial
           ref={ringMat}
-          color="#35e0d4"
+          color="#1f7ae0"
           transparent
           opacity={0.4}
           toneMapped={false}
@@ -48,7 +48,7 @@ function SelectionHalo({ selected, product }) {
         <cylinderGeometry args={[r * 0.95, r * 0.95, 2.2, 24, 1, true]} />
         <meshBasicMaterial
           ref={beamMat}
-          color="#35e0d4"
+          color="#1f7ae0"
           transparent
           opacity={0.05}
           toneMapped={false}

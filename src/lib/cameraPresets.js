@@ -3,7 +3,7 @@ export const VIEW_ORDER = ['twin', 'plan', 'isometric', 'side', 'top', 'interior
 /** Camera rigs behind the toolbar buttons. CameraRig eases between them. */
 export const VIEW_PRESETS = {
   twin:      { id: 'twin',      label: '3D Twin',   position: [40, 30, 46],  target: [0, 5, 0],     fov: 38 },
-  plan:      { id: 'plan',      label: 'Plan View', position: [0, 72, 0.01], target: [0, 3, 0],     fov: 34 },
+  plan:      { id: 'plan',      label: 'Plan', position: [0, 72, 0.01], target: [0, 3, 0],     fov: 34 },
   isometric: { id: 'isometric', label: 'Isometric', position: [46, 42, 46],  target: [0, 5, 0],     fov: 26 },
   side:      { id: 'side',      label: 'Side',      position: [0, 9, 66],    target: [0, 6, 0],     fov: 30 },
   top:       { id: 'top',       label: 'Top',       position: [0, 58, 20],   target: [0, 4, 0],     fov: 40 },

@@ -6,53 +6,35 @@ export default function OverviewTab({ product, placement }) {
   const pct = discountPercent(product)
 
   return (
-    <div className="space-y-4">
-      <div className="grid place-items-center rounded-xl bg-paper py-5">
+    <div className="space-y-5">
+      <div className="grid place-items-center rounded-xl bg-soft py-6">
         <ProductGlyph category={product.category} tint={product.colorHex} size={150} />
       </div>
 
       <div>
-        <h3 className="text-lg font-semibold leading-tight text-white">{product.nameEn}</h3>
-        <p dir="rtl" className="mt-0.5 text-base text-muted">
+        <p className="text-[11px] uppercase tracking-wider text-ink-faint">{product.category}</p>
+        <h3 className="mt-1 text-lg font-semibold leading-tight text-ink">{product.nameEn}</h3>
+        <p dir="rtl" className="text-base text-ink-soft">
           {product.nameAr}
         </p>
       </div>
 
-      <div className="rounded-xl border border-line/70 bg-ink-800/60 p-4">
-        <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-          <span
-            className="text-3xl font-extrabold"
-            style={{ color: promo ? '#ff6b78' : '#ffffff' }}
-          >
-            {formatPrice(effectivePrice(product))}
-          </span>
-          {pct > 0 && (
-            <span className="rounded-md bg-esl-red px-2 py-0.5 text-xs font-bold text-white">−{pct}%</span>
-          )}
-        </div>
+      <p className="text-sm leading-relaxed text-ink-soft">{product.description}</p>
 
-        <p dir="rtl" className="mt-1 text-sm text-muted">
-          {formatPriceAr(effectivePrice(product))}
-        </p>
-
-        <dl className="mt-3 space-y-1 border-t border-line/60 pt-3 text-xs">
-          <Row label="List price" value={formatPrice(product.price)} />
-          {promo && <Row label="Promotional price" value={formatPrice(product.promoPrice)} accent />}
-          {product.oldPrice != null && (
-            <Row label="Previous price" value={formatPrice(product.oldPrice)} strike />
-          )}
-        </dl>
-      </div>
-
-      <p className="text-sm leading-relaxed text-[#c3dbe0]">{product.description}</p>
+      <dl className="space-y-1.5 border-t border-line pt-4 text-xs">
+        <Row label="List" value={formatPrice(product.price)} />
+        {promo && <Row label="Promotional" value={formatPrice(product.promoPrice)} accent />}
+        {product.oldPrice != null && (
+          <Row label="Previous" value={formatPrice(product.oldPrice)} strike />
+        )}
+        {pct > 0 && <Row label="Saving" value={`−${pct}%`} accent />}
+        <Row label="Arabic price" value={formatPriceAr(effectivePrice(product))} />
+      </dl>
 
       {placement && (
-        <div className="rounded-lg border border-line/60 bg-ink-800/40 px-3 py-2.5 text-xs">
-          <p className="font-semibold uppercase tracking-wider text-cyan-400">Selected label</p>
-          <p className="mt-1 text-[#c3dbe0]">
-            {placement.location.floorLabel} → {placement.location.zoneLabel} → {placement.location.shelf}
-          </p>
-        </div>
+        <p className="border-t border-line pt-3 text-xs text-ink-faint">
+          {placement.location.zoneLabel} · {placement.location.shelf}
+        </p>
       )}
     </div>
   )
@@ -61,12 +43,12 @@ export default function OverviewTab({ product, placement }) {
 function Row({ label, value, accent, strike }) {
   return (
     <div className="flex justify-between gap-3">
-      <dt className="text-muted">{label}</dt>
+      <dt className="text-ink-faint">{label}</dt>
       <dd
         className={[
           'font-medium tabular-nums',
-          accent ? 'text-cyan-300' : 'text-white',
-          strike ? 'line-through opacity-60' : '',
+          accent ? 'text-red' : 'text-ink',
+          strike ? 'line-through opacity-50' : '',
         ].join(' ')}
       >
         {value}

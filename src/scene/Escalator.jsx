@@ -79,7 +79,7 @@ function Escalator() {
         ))}
       </group>
 
-      {/* glass balustrades with a cyan handrail */}
+      {/* glass balustrades with a lit handrail */}
       {[-1.35, 1.35].map((x, i) => (
         <group key={x}>
           <mesh
@@ -111,7 +111,7 @@ function Escalator() {
             position={[x, 0, 0]}
           >
             <boxGeometry args={[0.09, 0.07, 1]} />
-            <meshStandardMaterial color="#35e0d4" emissive="#35e0d4" emissiveIntensity={0.7} toneMapped={false} />
+            <meshStandardMaterial color="#1f7ae0" emissive="#1f7ae0" emissiveIntensity={0.7} toneMapped={false} />
           </mesh>
         </group>
       ))}

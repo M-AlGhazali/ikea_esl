@@ -13,9 +13,9 @@ import SpecsTab from './tabs/SpecsTab.jsx'
 
 const TABS = [
   { id: 'overview', label: 'Overview', Component: OverviewTab },
-  { id: 'label', label: 'Label Info', Component: LabelInfoTab },
+  { id: 'label', label: 'Label', Component: LabelInfoTab },
   { id: 'locations', label: 'Locations', Component: LocationsTab },
-  { id: 'stock', label: 'Stock & Pricing', Component: StockPricingTab },
+  { id: 'stock', label: 'Stock', Component: StockPricingTab },
   { id: 'specs', label: 'Specs', Component: SpecsTab },
 ]
 
@@ -36,19 +36,18 @@ export default function RightDetailsPanel() {
   const tone = stockToken(product.stockStatus)
 
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex h-full flex-col bg-panel">
       <header className="border-b border-line px-5 pb-4 pt-5">
         <div className="flex items-start gap-3">
-          <div className="shrink-0 rounded-xl bg-paper p-1.5">
-            <ProductGlyph category={product.category} tint={product.colorHex} size={56} />
+          <div className="shrink-0 rounded-xl bg-soft p-1.5">
+            <ProductGlyph category={product.category} tint={product.colorHex} size={52} />
           </div>
 
           <div className="min-w-0 flex-1">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-cyan-400">
-              {product.category}
-            </p>
-            <h2 className="truncate text-lg font-semibold leading-tight text-white">{product.nameEn}</h2>
-            <p dir="rtl" className="truncate text-sm text-muted">
+            <h2 className="truncate text-base font-semibold leading-tight text-ink">
+              {product.nameEn}
+            </h2>
+            <p dir="rtl" className="truncate text-sm text-ink-soft">
               {product.nameAr}
             </p>
           </div>
@@ -56,22 +55,20 @@ export default function RightDetailsPanel() {
           <button
             type="button"
             onClick={clearSelection}
-            aria-label="Close details"
-            className="-mr-1 -mt-1 shrink-0 rounded-lg px-2 py-1 text-lg leading-none text-muted transition hover:bg-ink-800 hover:text-white"
+            aria-label="Close"
+            className="-mr-1 -mt-1 shrink-0 rounded-lg px-2 py-1 text-lg leading-none text-ink-faint transition hover:bg-soft hover:text-ink"
           >
             ×
           </button>
         </div>
 
         <div className="mt-4 flex flex-wrap items-baseline gap-x-3 gap-y-2">
-          <span className="text-2xl font-bold text-white">{formatPrice(effectivePrice(product))}</span>
+          <span className="text-2xl font-semibold text-ink">{formatPrice(effectivePrice(product))}</span>
           {product.promoPrice != null && (
-            <span className="text-sm text-muted line-through">{formatPrice(product.price)}</span>
+            <span className="text-sm text-ink-faint line-through">{formatPrice(product.price)}</span>
           )}
-          <span
-            className="ml-auto rounded-full px-2.5 py-1 text-[11px] font-semibold"
-            style={{ color: tone, background: `${tone}1f` }}
-          >
+          <span className="ml-auto flex items-center gap-1.5 text-xs font-medium" style={{ color: tone }}>
+            <span className="size-1.5 rounded-full" style={{ background: tone }} />
             {stockLabel(product.stockStatus)}
           </span>
         </div>
@@ -80,9 +77,9 @@ export default function RightDetailsPanel() {
           <button
             type="button"
             onClick={() => setActiveTab('locations')}
-            className="mt-3 w-full rounded-lg bg-cyan-600/15 px-3 py-2 text-left text-xs text-cyan-300 transition hover:bg-cyan-600/25"
+            className="mt-3 w-full rounded-lg bg-brand-soft px-3 py-2 text-left text-xs font-medium text-brand transition hover:bg-brand/10"
           >
-            Labelled in <b>{placements.length}</b> locations across the store →
+            {placements.length} locations in store →
           </button>
         )}
       </header>
@@ -96,8 +93,8 @@ export default function RightDetailsPanel() {
             className={[
               'whitespace-nowrap rounded-lg px-3 py-1.5 text-xs font-medium transition',
               activeTab === t.id
-                ? 'bg-cyan-400 text-ink-900'
-                : 'text-muted hover:bg-ink-800 hover:text-white',
+                ? 'bg-brand text-white'
+                : 'text-ink-soft hover:bg-soft hover:text-ink',
             ].join(' ')}
           >
             {t.label}
@@ -116,16 +113,10 @@ function EmptyState() {
   const selectProduct = useStoreState((s) => s.selectProduct)
 
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex h-full flex-col bg-panel">
       <div className="border-b border-line px-5 py-5">
-        <h2 className="text-base font-semibold text-white">Store Catalog</h2>
-        <p className="mt-1 text-sm leading-relaxed text-muted">
-          Click any product, shelf label or hanging sign in the 3D store — or pick one below.
-        </p>
-        <p className="mt-3 text-[11px] text-muted">
-          <span className="font-semibold text-cyan-300">×2</span> marks a product that is labelled in more
-          than one place.
-        </p>
+        <h2 className="text-base font-semibold text-ink">Catalog</h2>
+        <p className="mt-1 text-sm text-ink-soft">Select anything in the store, or pick a product.</p>
       </div>
 
       <div className="scroll-slim min-h-0 flex-1 overflow-y-auto px-3 py-3">

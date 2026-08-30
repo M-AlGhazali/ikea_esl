@@ -3,8 +3,9 @@ import { VIEW_ORDER, VIEW_PRESETS } from '../lib/cameraPresets.js'
 import FloorFilter from './FloorFilter.jsx'
 
 /**
- * Floating glass controls over the viewport. Deliberately not a full-width
- * chrome bar — the 3D scene stays the hero, and the controls sit on top of it.
+ * Floating controls over the viewport, split by what they do: camera along the
+ * top, model display along the bottom. Keeping them in two short rows rather
+ * than one long one is what stops the chrome competing with the scene.
  */
 export default function TopToolbar() {
   const view = useStoreState((s) => s.view)
@@ -16,31 +17,21 @@ export default function TopToolbar() {
 
   return (
     <>
-      <div className="scroll-slim pointer-events-auto absolute inset-x-0 top-0 z-10 flex flex-nowrap items-start gap-2 overflow-x-auto p-3 lg:pointer-events-none lg:flex-wrap lg:gap-2.5 lg:p-4">
-        <div className="pointer-events-auto shrink-0 rounded-xl border border-line/70 bg-ink-850/80 p-2 backdrop-blur-md">
-          <div className="flex items-center gap-1">
-            {VIEW_ORDER.map((id) => (
-              <button
-                key={id}
-                type="button"
-                onClick={() => setView(id)}
-                className={[
-                  'whitespace-nowrap rounded-lg px-3 py-1.5 text-xs font-medium transition',
-                  view === id
-                    ? 'bg-cyan-400 text-ink-900'
-                    : 'text-muted hover:bg-ink-700 hover:text-white',
-                ].join(' ')}
-              >
-                {VIEW_PRESETS[id].label}
-              </button>
-            ))}
-          </div>
-        </div>
+      <div className="scroll-slim pointer-events-auto absolute inset-x-0 top-0 z-10 flex flex-nowrap items-start gap-2 overflow-x-auto p-3 lg:pointer-events-none lg:p-4">
+        <Group>
+          {VIEW_ORDER.map((id) => (
+            <Segment key={id} active={view === id} onClick={() => setView(id)}>
+              {VIEW_PRESETS[id].label}
+            </Segment>
+          ))}
+        </Group>
 
         <FloorFilter />
+      </div>
 
-        <div className="pointer-events-auto flex shrink-0 items-center gap-3 rounded-xl border border-line/70 bg-ink-850/80 px-4 py-2.5 backdrop-blur-md">
-          <label htmlFor="cutaway" className="text-[10px] font-semibold uppercase tracking-wider text-muted">
+      <div className="pointer-events-none absolute bottom-3 left-3 z-10 flex flex-wrap items-center gap-2 lg:bottom-4 lg:left-4">
+        <div className="pointer-events-auto flex shrink-0 items-center gap-2.5 rounded-xl border border-line bg-white/90 px-3.5 py-2 shadow-sm backdrop-blur">
+          <label htmlFor="cutaway" className="text-xs text-ink-soft">
             Cutaway
           </label>
           <input
@@ -51,35 +42,43 @@ export default function TopToolbar() {
             step="0.01"
             value={cutaway}
             onChange={(e) => setCutaway(Number(e.target.value))}
-            className="w-28 cursor-pointer"
+            className="w-24 cursor-pointer"
           />
-          <span className="w-9 text-right text-xs font-medium tabular-nums text-cyan-300">
+          <span className="w-8 text-right text-xs font-medium tabular-nums text-brand">
             {Math.round(cutaway * 100)}%
           </span>
         </div>
 
-        <button
-          type="button"
-          onClick={toggleDimensions}
-          aria-pressed={showDimensions}
-          className={[
-            'pointer-events-auto shrink-0 rounded-xl border px-4 py-2.5 text-xs font-medium backdrop-blur-md transition',
-            showDimensions
-              ? 'border-cyan-400 bg-cyan-400/20 text-cyan-300'
-              : 'border-line/70 bg-ink-850/80 text-muted hover:text-white',
-          ].join(' ')}
-        >
-          Dimensions
-        </button>
-      </div>
-
-      {/* Title block, bottom-left of the viewport. */}
-      <div className="pointer-events-none absolute bottom-4 left-4 z-10 hidden md:block">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-cyan-400">
-          Electronic Shelf Labels
-        </p>
-        <p className="text-sm font-medium text-white/85">Store Digital Twin — Concept Demo</p>
+        <Group>
+          <Segment active={showDimensions} onClick={toggleDimensions}>
+            Dimensions
+          </Segment>
+        </Group>
       </div>
     </>
+  )
+}
+
+export function Group({ children }) {
+  return (
+    <div className="pointer-events-auto flex shrink-0 items-center gap-0.5 rounded-xl border border-line bg-white/90 p-1 shadow-sm backdrop-blur">
+      {children}
+    </div>
+  )
+}
+
+export function Segment({ active, onClick, children }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-pressed={active}
+      className={[
+        'whitespace-nowrap rounded-lg px-3 py-1.5 text-xs font-medium transition',
+        active ? 'bg-brand text-white' : 'text-ink-soft hover:bg-soft hover:text-ink',
+      ].join(' ')}
+    >
+      {children}
+    </button>
   )
 }

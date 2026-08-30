@@ -47,8 +47,8 @@ describe('format', () => {
     expect(stockLabel('in-stock')).toBe('In Stock')
     expect(stockLabel('low-stock')).toBe('Low Stock')
     expect(stockLabel('out-of-stock')).toBe('Out of Stock')
-    expect(stockToken('in-stock')).toBe('#38d39f')
-    expect(stockToken('out-of-stock')).toBe('#ff5c6c')
+    expect(stockToken('in-stock')).toBe('#0f8a5f')
+    expect(stockToken('out-of-stock')).toBe('#d13b3b')
   })
 
   it('names the two label types', () => {

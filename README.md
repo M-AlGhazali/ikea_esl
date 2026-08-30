@@ -44,7 +44,7 @@ the lamp section.
 
 | | |
 |---|---|
-| **Shelf-edge ESL** | Small e-paper tag clipped to the shelf lip. Bilingual name, price, promo and old price, product image, QR, SKU, aisle, stock, dimensions. A cyan strip on the housing signals that it is powered; it brightens on hover and pulses when selected. |
+| **Shelf-edge ESL** | Small e-paper tag clipped to the shelf lip. Bilingual name, price, promo and old price, product image, QR, SKU, aisle, stock, dimensions. A blue strip on the housing signals that it is powered; it brightens on hover and pulses when selected. |
 | **Hybrid showroom sign** | A large hanging *printed* information sheet whose bottom red price block is a **screen**. Built as two separate meshes so the paper stays matte while the price block glows. That contrast is the hybrid-signage pitch. |
 
 **One product, several labels.** Four products are placed in two locations each.

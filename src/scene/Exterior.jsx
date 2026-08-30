@@ -67,7 +67,7 @@ function Exterior() {
       {/* forecourt apron and entrance mat */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.005, STORE.z[1] + 9]} receiveShadow>
         <planeGeometry args={[width + 18, 18]} />
-        <meshStandardMaterial color="#152c33" roughness={1} />
+        <meshStandardMaterial color="#e9ecef" roughness={1} />
       </mesh>
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.012, STORE.z[1] + 2.6]}>
         <planeGeometry args={[12, 3]} />

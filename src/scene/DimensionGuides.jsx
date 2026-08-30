@@ -8,7 +8,7 @@ import { useStoreState } from '../store/useStoreState.js'
  * Measurement overlay, off by default. Shows the building footprint, the two
  * floor heights, and the real bounding box of whatever is selected.
  */
-const CYAN = '#35e0d4'
+const GUIDE = '#0058a3'
 
 function Guide({ from, to, label, labelOffset = [0, 0.5, 0] }) {
   const mid = [(from[0] + to[0]) / 2, (from[1] + to[1]) / 2, (from[2] + to[2]) / 2]
@@ -16,7 +16,7 @@ function Guide({ from, to, label, labelOffset = [0, 0.5, 0] }) {
     <group>
       <Line
         points={[from, to]}
-        color={CYAN}
+        color={GUIDE}
         lineWidth={1.6}
         dashed
         dashSize={0.5}
@@ -27,11 +27,11 @@ function Guide({ from, to, label, labelOffset = [0, 0.5, 0] }) {
       <Text
         position={[mid[0] + labelOffset[0], mid[1] + labelOffset[1], mid[2] + labelOffset[2]]}
         fontSize={0.7}
-        color={CYAN}
+        color={GUIDE}
         anchorX="center"
         anchorY="middle"
         outlineWidth={0.02}
-        outlineColor="#05171c"
+        outlineColor="#ffffff"
       >
         {label}
       </Text>
@@ -50,16 +50,16 @@ function SelectedBounds({ placement }) {
     <group position={[x, y, z]} rotation={[0, placement.location.rotationY, 0]}>
       <mesh position={[0, h / 2, 0]}>
         <boxGeometry args={[w, h, dp]} />
-        <meshBasicMaterial color={CYAN} wireframe transparent opacity={0.55} depthTest={false} />
+        <meshBasicMaterial color={GUIDE} wireframe transparent opacity={0.55} depthTest={false} />
       </mesh>
       <Text
         position={[0, h + 0.28, 0]}
         fontSize={0.16}
-        color={CYAN}
+        color={GUIDE}
         anchorX="center"
         anchorY="middle"
         outlineWidth={0.008}
-        outlineColor="#05171c"
+        outlineColor="#ffffff"
       >
         {`${d.width} × ${d.depth} × ${d.height} cm`}
       </Text>

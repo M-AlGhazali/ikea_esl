@@ -34,10 +34,10 @@ export default function StoreScene() {
       }}
       onPointerMissed={() => clearSelection()}
     >
-      <color attach="background" args={['#05171c']} />
-      <fog attach="fog" args={['#05171c', 95, 240]} />
+      <color attach="background" args={['#f4f6f8']} />
+      <fog attach="fog" args={['#f4f6f8', 90, 230]} />
 
-      <hemisphereLight args={['#cfe9ef', '#0b2a35', 0.55]} />
+      <hemisphereLight args={['#ffffff', '#c8ced6', 0.75]} />
       <directionalLight
         position={[26, 34, 18]}
         intensity={1.9}
