@@ -3,6 +3,7 @@ import { useFrame } from '@react-three/fiber'
 import { STORE } from '../data/storeLayout.js'
 import { useStoreState } from '../store/useStoreState.js'
 import { damp } from '../lib/anim.js'
+import StorefrontSign from './StorefrontSign.jsx'
 
 /**
  * The IKEA cue: a blue outer skin and a yellow entrance canopy. Colour and
@@ -37,6 +38,8 @@ function Exterior() {
         <boxGeometry args={[width + 1.05, 1.1, depth + 1.05]} />
         <meshStandardMaterial ref={band} color="#ffdb00" roughness={0.8} side={2} transparent opacity={1} />
       </mesh>
+
+      <StorefrontSign />
 
       {/* yellow entrance canopy */}
       <mesh position={[0, 4.5, STORE.z[1] + 1.8]} castShadow>

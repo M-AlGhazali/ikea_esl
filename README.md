@@ -99,6 +99,14 @@ The seam that makes multi-location work is `src/data/placements.js`: it flattens
 the details panel iterates a *product's* locations. Both point at the same
 records, so they can never disagree.
 
+### Branding
+
+The mark in the portal header (`src/ui/BrandMark.jsx`) and the storefront fascia
+in the 3D scene (`src/lib/brandTexture.js`) are **stylised marks drawn from
+primitives** for this concept demo — an SVG ellipse and a canvas painting, not
+the official brand artwork. Replace both with the real asset before the deck
+goes anywhere external.
+
 ### Offline-safe
 
 Two things would silently add a network dependency and are avoided on purpose:
