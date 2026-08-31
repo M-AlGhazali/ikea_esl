@@ -19,9 +19,7 @@ export default function TopToolbar() {
   return (
     <>
       <div className="scroll-slim pointer-events-auto absolute inset-x-0 top-0 z-10 flex flex-nowrap items-start gap-2 overflow-x-auto p-3 lg:pointer-events-none lg:p-4">
-        <div className="pointer-events-auto flex shrink-0 items-center rounded-xl border border-line bg-white/90 px-3 py-1.5 shadow-sm backdrop-blur">
-          <BrandMark height={22} />
-        </div>
+        <BrandMark height={38} className="pointer-events-auto shrink-0 shadow-sm" />
 
         <Group>
           {VIEW_ORDER.map((id) => (

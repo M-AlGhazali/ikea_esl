@@ -1,35 +1,18 @@
 /**
- * Small brand mark for the portal header.
+ * Brand mark for the portal header — the supplied logo asset.
  *
- * Drawn as inline SVG so it scales cleanly and needs no asset file. Like the 3D
- * fascia, this is a stylised mark for the concept demo — swap in the official
- * artwork before any external use.
+ * Referenced by URL rather than imported, which is how Vite expects files in
+ * `public/` to be used. The source is 264 x 148, so height drives the width.
  */
-export default function BrandMark({ height = 26, className = '' }) {
+const LOGO_SRC = '/ikea-logo.png'
+
+export default function BrandMark({ height = 38, className = '' }) {
   return (
-    <svg
-      viewBox="0 0 132 60"
-      height={height}
-      role="img"
-      aria-label="IKEA"
-      className={className}
-      style={{ display: 'block' }}
-    >
-      <ellipse cx="66" cy="30" rx="65" ry="29" fill="#ffdb00" />
-      <ellipse cx="66" cy="30" rx="60" ry="24" fill="none" stroke="#0058a3" strokeWidth="2.5" />
-      <text
-        x="66"
-        y="31"
-        textAnchor="middle"
-        dominantBaseline="central"
-        fill="#0058a3"
-        fontFamily="Inter, 'Segoe UI', Arial, sans-serif"
-        fontSize="28"
-        fontWeight="800"
-        letterSpacing="1.5"
-      >
-        IKEA
-      </text>
-    </svg>
+    <img
+      src={LOGO_SRC}
+      alt="IKEA"
+      style={{ height, width: 'auto', display: 'block' }}
+      className={`rounded-xl ${className}`}
+    />
   )
 }

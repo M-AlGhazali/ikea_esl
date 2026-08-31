@@ -101,11 +101,11 @@ records, so they can never disagree.
 
 ### Branding
 
-The mark in the portal header (`src/ui/BrandMark.jsx`) is an SVG ellipse with a
-text node; the storefront wordmark (`src/scene/StorefrontSign.jsx`) is 3D text
-in a generic heavy sans. Both are **stylised stand-ins** for this concept demo,
-not the official brand artwork or typeface. Replace them before the deck goes
-anywhere external.
+The portal header uses the supplied logo asset at `public/ikea-logo.png`.
+
+The storefront wordmark in the 3D scene (`src/scene/StorefrontSign.jsx`) is 3D
+text in a generic heavy sans — a **stylised stand-in**, not the brand typeface.
+Replace it before the deck goes anywhere external.
 
 ### Offline-safe
 
