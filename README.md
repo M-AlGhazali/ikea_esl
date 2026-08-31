@@ -101,11 +101,11 @@ records, so they can never disagree.
 
 ### Branding
 
-The mark in the portal header (`src/ui/BrandMark.jsx`) and the storefront fascia
-in the 3D scene (`src/lib/brandTexture.js`) are **stylised marks drawn from
-primitives** for this concept demo — an SVG ellipse and a canvas painting, not
-the official brand artwork. Replace both with the real asset before the deck
-goes anywhere external.
+The mark in the portal header (`src/ui/BrandMark.jsx`) is an SVG ellipse with a
+text node; the storefront wordmark (`src/scene/StorefrontSign.jsx`) is 3D text
+in a generic heavy sans. Both are **stylised stand-ins** for this concept demo,
+not the official brand artwork or typeface. Replace them before the deck goes
+anywhere external.
 
 ### Offline-safe
 
