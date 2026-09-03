@@ -1,4 +1,4 @@
-# IKEA Store — ESL Digital Twin
+# IKEA ESL — Digital Twin
 
 A single-page, interactive 3D concept prototype demonstrating **Electronic Shelf
 Labels** inside an IKEA-inspired two-floor store.

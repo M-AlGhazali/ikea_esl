@@ -1,4 +1,9 @@
-# IKEA Store — ESL Digital Twin Implementation Plan
+# IKEA ESL — Digital Twin Implementation Plan
+
+> **Historical record.** This is the plan as written on 2026-08-30, kept as-is.
+> The project folder was later renamed from `IKEA Store` to `IKEA ESL`, so the
+> paths and the npm package name below are out of date. Everything else still
+> describes the build.
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
