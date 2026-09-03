@@ -19,8 +19,15 @@ export default function App() {
         <Legend />
       </main>
 
-      <aside className="h-[50dvh] shrink-0 border-t border-line bg-panel lg:h-auto lg:w-[380px] lg:border-l lg:border-t-0 xl:w-[400px]">
-        <RightDetailsPanel />
+      <aside className="flex h-[50dvh] shrink-0 flex-col border-t border-line bg-panel lg:h-auto lg:w-[380px] lg:border-l lg:border-t-0 xl:w-[400px]">
+        <div className="min-h-0 flex-1">
+          <RightDetailsPanel />
+        </div>
+        {/* Always visible: this is a public demo carrying someone else's marks. */}
+        <p className="shrink-0 border-t border-line px-5 py-2 text-[10px] leading-snug text-ink-faint">
+          Unofficial concept demo. Not affiliated with, endorsed by, or connected to
+          Inter IKEA Systems B.V. All product data is fictional.
+        </p>
       </aside>
     </div>
   )

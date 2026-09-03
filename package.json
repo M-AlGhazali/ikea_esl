@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "deploy": "node scripts/deploy.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.8",
@@ -25,5 +26,7 @@
     "tailwindcss": "^4.3.3",
     "vite": "^8.2.2",
     "vitest": "^4.1.11"
-  }
+  },
+  "description": "Interactive 3D digital-twin prototype for Electronic Shelf Labels in a two-floor retail store.",
+  "license": "MIT"
 }
