@@ -4,7 +4,9 @@ An interactive 3D concept prototype for **Electronic Shelf Labels** in a
 two-floor retail store. One page: explore the store in 3D, click any product or
 label, and read its full record in a side panel.
 
-**[Open the live demo →](https://m-alghazali.github.io/ikea_esl/)**
+**[Open the live demo →](https://m-alghazali.github.io/ikea_esl/)** It runs in
+the browser with nothing to install: drag to orbit, scroll to zoom, click a
+label.
 
 > **Disclaimer.** This is an unofficial concept prototype built to illustrate an
 > ESL deployment. It is not affiliated with, endorsed by, or connected to Inter
