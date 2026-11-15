@@ -1,20 +1,20 @@
 /**
  * Brand mark for the portal header.
  *
- * Built from BASE_URL rather than a bare "/" path: Vite rewrites asset URLs in
- * HTML and CSS for the configured base, but not string literals in JS, so a
- * hard-coded path 404s when the site is served from a sub-path.
- * The source is 264 x 148, so height drives the width.
+ * Plain text rather than a retailer logo: this is an unofficial concept demo,
+ * so the header names the project and says so, instead of borrowing a
+ * trademark. `height` keeps the old prop so the toolbar layout is unchanged.
  */
-const LOGO_SRC = `${import.meta.env.BASE_URL}ikea-logo.png`
-
 export default function BrandMark({ height = 38, className = '' }) {
   return (
-    <img
-      src={LOGO_SRC}
-      alt="IKEA"
-      style={{ height, width: 'auto', display: 'block' }}
-      className={`rounded-xl ${className}`}
-    />
+    <div
+      style={{ height }}
+      className={`flex flex-col justify-center rounded-xl border border-line bg-white/90 px-3 leading-tight backdrop-blur ${className}`}
+    >
+      <span className="whitespace-nowrap text-sm font-semibold text-brand">ESL Digital Twin</span>
+      <span className="whitespace-nowrap text-[10px] uppercase tracking-wide text-ink-faint">
+        Unofficial concept
+      </span>
+    </div>
   )
 }
